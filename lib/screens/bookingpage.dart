@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:caawiye_app/screens/CategoryList.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -166,568 +167,608 @@ class _doctorAppointmentsState extends State<doctorAppointments> {
   @override
   Widget build(BuildContext context) {
     String fullName=widget.fullName;
-    return Scaffold(
-      backgroundColor: Color(0xfff5f9ff),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Color(0xfff5f9ff),
 
 
-      body: connectivityResult.toString() == "ConnectivityResult.none"?
+        body: connectivityResult.toString() == "ConnectivityResult.none"?
 
-      Center(child:Text("Check you internet connection !",style: TextStyle(color: Colors.black),),):
+        Center(child:Text("Check you internet connection !",style: TextStyle(color: Colors.black),),):
 
-      fullName==null? Center(child: CircularProgressIndicator()):
-      ListView(
-        children: [
-          Stack(
-            children: [
-              Container(
-                width: double.infinity,
-                height: 250,
-
-                // tag: widget.doctorhospital.id,
-                child: CachedNetworkImage(
-                  imageUrl: widget.imagePath,
-
-                  fit: BoxFit.cover,
-                ),
-
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 5),
-                child: Container(
-                  color: Colors.transparent,
-                  child: Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.blue,
-                        ),
-                      ),
-
-
-                    ],
-                  ),
-                ),
-              ),
-              // Padding(
-              //   padding: EdgeInsets.only(top: 5),
-              //   child: Positioned(
-              //     top: MediaQuery.of(context).padding.top,
-              //     left: 0,
-              //     right: 0,
-              //     child: Container(
-              //       color: Colors.transparent,
-              //       child: Row(
-              //         children: [
-              //
-              //           //back
-              //           IconButton(
-              //             onPressed: ()
-              //             {
-              //               Get.back();
-              //             },
-              //             icon: const Icon(
-              //               Icons.arrow_back,
-              //               color: Colors.blue,
-              //             ),
-              //           ),
-              //
-              //
-              //
-              //         ],
-              //       ),
-              //     ),
-              //   ),
-              // ),
-            ],
-          ),
-
-
-          const SizedBox(height: 10),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+        fullName==null? Center(child: CircularProgressIndicator()):
+        ListView(
+          children: [
+            Stack(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width * 0.7,
-                      child: Row(
-                        children: [
-                          Text(
-                            widget.fullName,
-                            style: TextStyle(fontSize: 14,
-                                fontWeight: FontWeight.w700),
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                          ),
-                          const SizedBox(height: 10,),
-                          Padding(padding: EdgeInsets.symmetric(horizontal: 5),
-                              child: Icon(Icons.verified, color: Colors.blue,
-                                size: 20,)),
-                        ],
-
-                      ),
-
-
-                    ),
-                    // Icon(Icons.verified,color: Colors.blue,),
-                    Padding(
-                      padding: EdgeInsets.only(right: 15),
-                      child: Row(
-                        children: [
-                          Row(
-                            children: [
-                              // RatingBar.builder(
-                              //   minRating: 1,
-                              //   itemBuilder: (context, _) => Icon(Icons.star, color: Colors.amber),
-                              //   updateOnDrag: true,
-                              //   onRatingUpdate: (rating) =>
-                              //   this.rating = rating,
-                              //
-                              //
-                              //
-                              //
-                              //
-                              //   itemSize: 13,
-                              //
-                              //
-                              // ),
-
-                            ],
-                          ),
-                        ],
-                      ),
-                    )
-
-
-                  ],
-                ),
-                const SizedBox(height: 5,),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          SocialIconButton1(
-                            icon: Icon(
-                              FontAwesomeIcons.stethoscope,
-                              color: Colors.blue,
-                            ),
-                            onPressed: () {},
-                          ),
-                          const SizedBox(height: 10,),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 5),
-                            child: Text("cardiology",
-                              style: TextStyle(
-                                  fontSize: 13, color: Colors.blue),
-                              textAlign: TextAlign.justify,
-                            ),
-                          ),
+                  width: double.infinity,
+                  height: 250,
 
+                  // tag: widget.doctorhospital.id,
+                  child: CachedNetworkImage(
+                    imageUrl: widget.imagePath,
 
-                        ],
-                      ),
-                      Text(
-                        "Fee:"+widget.fee,
-                        style: TextStyle(fontSize: 15,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.w800),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      ),
-                    ],
-
+                    fit: BoxFit.cover,
                   ),
-                ),
-                const SizedBox(height: 10,),
-                Container(
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width,
-                  height: 130,
-                  decoration: BoxDecoration(
-                    color: Colors.blue.shade50,
-                  ),
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      child: Text(
-                        "ahmed is the best doctor in hindia he has more expirence about his speaclist ",
-                        style: GoogleFonts.poppins(
-                          fontSize: 14, letterSpacing: 1,),)),
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: 165,
-                      height: 40,
 
-                      decoration: BoxDecoration(
-                        color: Colors.blue.shade50,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Center(
-
-                        child: Text('Exp:'+widget.experience, style:
-                        TextStyle(fontSize: 14,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 165,
-                      height: 40,
-
-                      decoration: BoxDecoration(
-                        color: Colors.blue.shade50,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Center(
-                        child: Text('nationality:hindi', style:
-                        TextStyle(fontSize: 14,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
-                const SizedBox(height: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Bukaanka", style: TextStyle(fontSize: 16,
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold),),
-                    const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                Padding(
+                  padding: EdgeInsets.only(top: 5),
+                  child: Container(
+                    color: Colors.transparent,
+                    child: Row(
                       children: [
-                        Container(
-                          width: 165,
-                          height: 40,
-
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
+                        IconButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: Colors.blue,
                           ),
-                          child: Padding(
-                            padding: EdgeInsets.only(right: 105),
-                            child: TextButton(
-                              onPressed: () {},
-                              child: Text("Aniga", style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.blue),),
-                            ),
-                          ),
-
                         ),
+
 
                       ],
                     ),
-              SizedBox(height:5),
-              Column(
-                children: [
-                  HorizontalCalendar(
-                    date: DateTime.now(),
-                    textColor: Colors.black45,
-                    backgroundColor: Colors.white,
-                    selectedColor: Colors.blue,
-                    showMonth:true,
-                    locale: Localizations.localeOf(context),
-                    onDateSelected: (date) {
-                      setState(() {
-                        _selectedDate=date;
-                      });
-                      print(date.toString());
-                    },
                   ),
-
-                  SizedBox(height: 20),
-
-                  SizedBox(height: 20),
-                  // Add your time-related widgets here
-                  // For example, you can use a TimePicker or build your own time selection UI
-                ],
-              ),
-                    const SizedBox(height: 10),
-                    Form(
-                      key: formkey,
-                      child: Column(
-                        children: [
-                          TextFormField(
-
-                            controller: nameController,
-
-
-                            decoration: InputDecoration(
-                              labelText: "fullname",
-                              border: OutlineInputBorder(),
-                              prefixIcon: Icon(Icons.person),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          TextFormField(
-
-                            controller: ageController,
-
-
-                            decoration: InputDecoration(
-                              labelText: "Age",
-                              border: OutlineInputBorder(),
-                              prefixIcon: Icon(Icons.date_range),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          TextFormField(
-                            controller: addressController,
-
-
-
-                            decoration: InputDecoration(
-                              labelText: "address",
-                              border: OutlineInputBorder(),
-                              prefixIcon: Icon(Icons.location_on),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          TextFormField(
-                            controller: AmountController,
-                            validator: (value){
-
-                            },
-                            keyboardType: TextInputType.streetAddress,
-                            decoration: InputDecoration(
-                              hintText: "Fee",
-                              hintStyle: TextStyle(
-                                  color: Colors.white, fontSize: 22),
-                              border: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: Colors.blue,
-                                ),
-                              ),
-
-                              disabledBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                  color: Colors.blue,
-                                ),
-                              ),
-                              prefixIcon: Icon(FontAwesomeIcons.dollarSign,
-                                color: Colors.white,),
-                              filled: true,
-                              fillColor: Colors.blue.shade400,
-
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          TextFormField(
-                            controller: tellController,
-
-
-                            decoration: InputDecoration(
-                              labelText: "phone",
-                              border: OutlineInputBorder(),
-                              prefixIcon: Icon(Icons.call),
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                        ],
-                      ),
-                    ),
-
-
-                  ],
                 ),
-                const SizedBox(height: 16),
-                // Container(
-                //   width: double.infinity,
-                //   child: Column(
-                //     crossAxisAlignment: CrossAxisAlignment.start,
-                //     children: [
-                //       Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // Padding(
+                //   padding: EdgeInsets.only(top: 5),
+                //   child: Positioned(
+                //     top: MediaQuery.of(context).padding.top,
+                //     left: 0,
+                //     right: 0,
+                //     child: Container(
+                //       color: Colors.transparent,
+                //       child: Row(
                 //         children: [
-                //           Text(
-                //             'SubProducts',
-                //             style:TextStyle(
-                //               fontWeight: FontWeight.w500,
-                //               fontSize: 20,
+                //
+                //           //back
+                //           IconButton(
+                //             onPressed: ()
+                //             {
+                //               Get.back();
+                //             },
+                //             icon: const Icon(
+                //               Icons.arrow_back,
+                //               color: Colors.blue,
                 //             ),
                 //           ),
-                //           TextButton(
-                //             onPressed: () =>
-                //                 Navigator.pushNamed(context, DoctorScreen.id),
-                //             child: Text(
-                //               'View all',
-                //               style: TextStyle(),
-                //             ),
-                //           )
+                //
+                //
+                //
                 //         ],
                 //       ),
-                //       const SizedBox(height: 10),
-                //       SizedBox(
-                //         height: 210,
-                //         child: FutureBuilder<List<Doctors>>(
-                //             future: getDoctors(),
-                //             builder: (context, snapshot)  {
-                //               switch (snapshot.connectionState) {
-                //                 case ConnectionState.waiting:
-                //                   return Center(child:  CircularProgressIndicator(),);
-                //                 default:
-                //                   if(snapshot.data != null ){
-                //                     List<Doctors> data = snapshot.data!;
-                //                     return ListView.builder(
-                //                         scrollDirection: Axis.horizontal,
-                //                         shrinkWrap: true,
-                //                         itemCount: data.length,
-                //                         itemBuilder: (context, index) =>
-                //                             Padding(padding: EdgeInsets.symmetric(horizontal: 6),
-                //                               child: DoctorDeitls(doctor: data[index],),
-                //                             )
-                //
-                //
-                //                     );
-                //                   }else{
-                //                     return Center(child: Text('No Data Found..'),);
-                //                   }
-                //               }
-                //
-                //
-                //             }
-                //         ),
-                //       ),
-                //       // const SizedBox(height: 10),
-                //       // SizedBox(
-                //       //   height: 200,
-                //       //   width: double.infinity,
-                //       //   child: ListView.builder(
-                //       //     scrollDirection: Axis.horizontal,
-                //       //     itemCount: 5,
-                //       //     itemBuilder: (context, index) => Padding(
-                //       //       padding: const EdgeInsets.only(right: 4),
-                //       //       // child: ProductCard(),
-                //       //       child: Text('Product'),
-                //       //     ),
-                //       //   ),
-                //       // ),
-                //       const SizedBox(height: 16),
-                //     ],
+                //     ),
                 //   ),
                 // ),
-                const SizedBox(height: 10),
               ],
             ),
-          ),
-        ],
-      ),
 
 
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        child: Row(
-          children: [
-            Expanded(
-              child: Material(
-                child: InkWell(
-                  onTap: () {},
-                  borderRadius: BorderRadius.circular(12),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    decoration: BoxDecoration(
-                      // color: Theme.of(context).primaryColor.withOpacity(0.15),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: LikeButton(
-                      // onTap: (val) async {
-                      //   return true;
-                      // },
-                      isLiked: true,
-                      size: 40,
-                      circleColor: CircleColor(
-                        start: Color(0xff00ddff),
-                        end: Color(0xff0099cc),
-                      ),
-                      bubblesColor: BubblesColor(
-                        dotPrimaryColor: Colors.red,
-                        dotSecondaryColor:
-                        Theme
+            const SizedBox(height: 10),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: MediaQuery
                             .of(context)
-                            .primaryColor
-                            .withOpacity(0.15),
+                            .size
+                            .width * 0.7,
+                        child: Row(
+                          children: [
+                            Text(
+                              widget.fullName,
+                              style: TextStyle(fontSize: 14,
+                                  fontWeight: FontWeight.w700),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                            ),
+                            const SizedBox(height: 10,),
+                            Padding(padding: EdgeInsets.symmetric(horizontal: 5),
+                                child: Icon(Icons.verified, color: Colors.blue,
+                                  size: 20,)),
+                          ],
+
+                        ),
+
+
                       ),
-                      likeBuilder: (bool isLiked) =>
-                          Icon(
-                            Icons.health_and_safety,
-                            color: isLiked
-                                ? Colors.red
-                                : Colors.grey,
-                            size: 40,
+                      // Icon(Icons.verified,color: Colors.blue,),
+                      Padding(
+                        padding: EdgeInsets.only(right: 15),
+                        child: Row(
+                          children: [
+                            Row(
+                              children: [
+                                // RatingBar.builder(
+                                //   minRating: 1,
+                                //   itemBuilder: (context, _) => Icon(Icons.star, color: Colors.amber),
+                                //   updateOnDrag: true,
+                                //   onRatingUpdate: (rating) =>
+                                //   this.rating = rating,
+                                //
+                                //
+                                //
+                                //
+                                //
+                                //   itemSize: 13,
+                                //
+                                //
+                                // ),
+
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
+
+
+                    ],
+                  ),
+                  const SizedBox(height: 5,),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            SocialIconButton1(
+                              icon: Icon(
+                                FontAwesomeIcons.stethoscope,
+                                color: Colors.blue,
+                              ),
+                              onPressed: () {},
+                            ),
+                            const SizedBox(height: 10,),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 5),
+                              child: Text("cardiology",
+                                style: TextStyle(
+                                    fontSize: 13, color: Colors.blue),
+                                textAlign: TextAlign.justify,
+                              ),
+                            ),
+
+
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(width:10),
+                            Padding(
+                              padding: const EdgeInsets.only(left:5),
+                              child: Text(
+                                "fee",
+                                style: TextStyle(fontSize: 15,
+                                    color: Colors.blue,
+                                    fontWeight: FontWeight.w800),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                              ).tr(),
+                            ),
+                            Text(
+                              ":"+widget.fee,
+                              style: TextStyle(fontSize: 15,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w800),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                            ),
+                          ],
+                        ),
+                      ],
+
+                    ),
+                  ),
+                  const SizedBox(height: 10,),
+                  Container(
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
+                    height: 130,
+                    decoration: BoxDecoration(
+                      color: Colors.blue.shade50,
+                    ),
+                    child: Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: Text(
+                          "ahmed is the best doctor in hindia he has more expirence about his speaclist ",
+                          style: GoogleFonts.poppins(
+                            fontSize: 14, letterSpacing: 1,),)),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: 165,
+                        height: 40,
+
+                        decoration: BoxDecoration(
+                          color: Colors.blue.shade50,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+
+                          child: Row(
+                            children: [
+                              SizedBox(width: 30,),
+                              Text("experience", style:
+                              TextStyle(fontSize: 14,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold),
+                              ).tr(),
+                              Text(':'+widget.experience, style:
+                              TextStyle(fontSize: 14,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold),
+                              ),
+                            ],
                           ),
-                      likeCount: 0,
-                      countBuilder: (count, isLiked, text) => Text(''),
-                    ),
+                        ),
+                      ),
+                      Container(
+                        width: 165,
+                        height: 40,
+
+                        decoration: BoxDecoration(
+                          color: Colors.blue.shade50,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text('nationality', style:
+                            TextStyle(fontSize: 14,
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold),
+                            ).tr(),
+                            Text(":"+"Hindi", style:
+                            TextStyle(fontSize: 14,
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
+                  const SizedBox(height: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("the_patient", style: TextStyle(fontSize: 16,
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold),).tr(),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            width: 165,
+                            height: 40,
+
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 105),
+                              child: TextButton(
+                                onPressed: () {},
+                                child: Text("Aniga", style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue),).tr(),
+                              ),
+                            ),
+
+                          ),
+
+                        ],
+                      ),
+                SizedBox(height:5),
+                Column(
+                  children: [
+                    HorizontalCalendar(
+                      date: DateTime.now(),
+                      textColor: Colors.black45,
+                      backgroundColor: Colors.white,
+                      selectedColor: Colors.blue,
+                      showMonth:true,
+                      locale: Localizations.localeOf(context),
+                      onDateSelected: (date) {
+                        setState(() {
+                          _selectedDate=date;
+                        });
+                        print(date.toString());
+                      },
+                    ),
+
+                    SizedBox(height: 20),
+
+                    SizedBox(height: 20),
+                    // Add your time-related widgets here
+                    // For example, you can use a TimePicker or build your own time selection UI
+                  ],
                 ),
-              ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              flex: 4,
-              child: InkWell(
-                onTap: () {
-                  if (formkey.currentState!.validate()) {
+                      const SizedBox(height: 10),
+                      Form(
+                        key: formkey,
+                        child: Column(
+                          children: [
+                            TextFormField(
 
-                    makePaymentRequest(context);
-
-                  }
-
-                  // Get.to(PaymentPage());
-                  // saveNewOrderInfo();
+                              controller: nameController,
 
 
-                  // Get.to(CaawiyeLoginScreen());
-                  // c.addBooking(widget.doctorhospital);
-                },
+                              decoration: InputDecoration(
+                                label: Text("fullName").tr(),
+                                border: OutlineInputBorder(),
+                                prefixIcon: Icon(Icons.person),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            TextFormField(
 
-                child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.blue.shade400,
-                    borderRadius: BorderRadius.circular(5),
+                              controller: ageController,
 
+
+                              decoration: InputDecoration(
+                                label: Text("age").tr(),
+                                border: OutlineInputBorder(),
+                                prefixIcon: Icon(Icons.date_range),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            TextFormField(
+                              controller: addressController,
+
+
+
+                              decoration: InputDecoration(
+                                label: Text("Address").tr(),
+                                border: OutlineInputBorder(),
+                                prefixIcon: Icon(Icons.location_on),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            TextFormField(
+                              controller: AmountController,
+                              validator: (value){
+
+                              },
+                              keyboardType: TextInputType.streetAddress,
+                              decoration: InputDecoration(
+                               label:Text("fee").tr(),
+                                hintStyle: TextStyle(
+                                    color: Colors.white, fontSize: 22),
+                                border: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    color: Colors.blue,
+                                  ),
+                                ),
+
+                                disabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    color: Colors.blue,
+                                  ),
+                                ),
+                                prefixIcon: Icon(FontAwesomeIcons.dollarSign,
+                                  color: Colors.white,),
+                                filled: true,
+                                fillColor: Colors.blue.shade400,
+
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            TextFormField(
+                              controller: tellController,
+
+
+                              decoration: InputDecoration(
+                                label: Text("phone").tr(),
+                                border: OutlineInputBorder(),
+                                prefixIcon: Icon(Icons.call),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                          ],
+                        ),
+                      ),
+
+
+                    ],
                   ),
-                  child: Center(
-                    child: Text("Book And pay", style:
-                    TextStyle(
-                      fontSize: 20, color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    ),
-                  ),
-                ),
-
+                  const SizedBox(height: 16),
+                  // Container(
+                  //   width: double.infinity,
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Row(
+                  //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //         children: [
+                  //           Text(
+                  //             'SubProducts',
+                  //             style:TextStyle(
+                  //               fontWeight: FontWeight.w500,
+                  //               fontSize: 20,
+                  //             ),
+                  //           ),
+                  //           TextButton(
+                  //             onPressed: () =>
+                  //                 Navigator.pushNamed(context, DoctorScreen.id),
+                  //             child: Text(
+                  //               'View all',
+                  //               style: TextStyle(),
+                  //             ),
+                  //           )
+                  //         ],
+                  //       ),
+                  //       const SizedBox(height: 10),
+                  //       SizedBox(
+                  //         height: 210,
+                  //         child: FutureBuilder<List<Doctors>>(
+                  //             future: getDoctors(),
+                  //             builder: (context, snapshot)  {
+                  //               switch (snapshot.connectionState) {
+                  //                 case ConnectionState.waiting:
+                  //                   return Center(child:  CircularProgressIndicator(),);
+                  //                 default:
+                  //                   if(snapshot.data != null ){
+                  //                     List<Doctors> data = snapshot.data!;
+                  //                     return ListView.builder(
+                  //                         scrollDirection: Axis.horizontal,
+                  //                         shrinkWrap: true,
+                  //                         itemCount: data.length,
+                  //                         itemBuilder: (context, index) =>
+                  //                             Padding(padding: EdgeInsets.symmetric(horizontal: 6),
+                  //                               child: DoctorDeitls(doctor: data[index],),
+                  //                             )
+                  //
+                  //
+                  //                     );
+                  //                   }else{
+                  //                     return Center(child: Text('No Data Found..'),);
+                  //                   }
+                  //               }
+                  //
+                  //
+                  //             }
+                  //         ),
+                  //       ),
+                  //       // const SizedBox(height: 10),
+                  //       // SizedBox(
+                  //       //   height: 200,
+                  //       //   width: double.infinity,
+                  //       //   child: ListView.builder(
+                  //       //     scrollDirection: Axis.horizontal,
+                  //       //     itemCount: 5,
+                  //       //     itemBuilder: (context, index) => Padding(
+                  //       //       padding: const EdgeInsets.only(right: 4),
+                  //       //       // child: ProductCard(),
+                  //       //       child: Text('Product'),
+                  //       //     ),
+                  //       //   ),
+                  //       // ),
+                  //       const SizedBox(height: 16),
+                  //     ],
+                  //   ),
+                  // ),
+                  const SizedBox(height: 10),
+                ],
               ),
             ),
           ],
         ),
-      ),
 
+
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          child: Row(
+            children: [
+              Expanded(
+                child: Material(
+                  child: InkWell(
+                    onTap: () {},
+                    borderRadius: BorderRadius.circular(12),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      decoration: BoxDecoration(
+                        // color: Theme.of(context).primaryColor.withOpacity(0.15),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: LikeButton(
+                        // onTap: (val) async {
+                        //   return true;
+                        // },
+                        isLiked: true,
+                        size: 40,
+                        circleColor: CircleColor(
+                          start: Color(0xff00ddff),
+                          end: Color(0xff0099cc),
+                        ),
+                        bubblesColor: BubblesColor(
+                          dotPrimaryColor: Colors.red,
+                          dotSecondaryColor:
+                          Theme
+                              .of(context)
+                              .primaryColor
+                              .withOpacity(0.15),
+                        ),
+                        likeBuilder: (bool isLiked) =>
+                            Icon(
+                              Icons.health_and_safety,
+                              color: isLiked
+                                  ? Colors.red
+                                  : Colors.grey,
+                              size: 40,
+                            ),
+                        likeCount: 0,
+                        countBuilder: (count, isLiked, text) => Text(''),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                flex: 4,
+                child: InkWell(
+                  onTap: () {
+                    if (formkey.currentState!.validate()) {
+
+                      makePaymentRequest(context);
+
+                    }
+
+                    // Get.to(PaymentPage());
+                    // saveNewOrderInfo();
+
+
+                    // Get.to(CaawiyeLoginScreen());
+                    // c.addBooking(widget.doctorhospital);
+                  },
+
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.blue.shade400,
+                      borderRadius: BorderRadius.circular(5),
+
+                    ),
+                    child: Center(
+                      child: Text("pay", style:
+                      TextStyle(
+                        fontSize: 20, color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      ).tr(),
+                    ),
+                  ),
+
+                ),
+              ),
+            ],
+          ),
+        ),
+
+      ),
     );
   }
 }

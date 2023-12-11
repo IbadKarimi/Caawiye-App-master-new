@@ -1,0 +1,47 @@
+{
+  "hi_guys": "Urdu!",
+  "Hospital_List": "ہسپتال کی فہرست",
+  "Add_Hospital_Data": "ہسپتال کا ڈیٹا شامل کریں",
+  "Hospital_Name": "ہسپتال کا نام",
+  "City_Name": "شہر کا نام",
+  "Address": "پتہ",
+  "Submit":"جمع کرائیں",
+
+
+
+  "13_specialties": "خصوصیات",
+  "doctor": "ڈاکٹر",
+  "slider_images": "سلائیڈر امیجز شامل کریں۔",
+
+  "Add_Hospital_Category": "ہسپتال کا زمرہ شامل کریں",
+  "Category_Name": "قسم کا نام",
+
+  "order_doctor": "ڈاکٹر کو آرڈر کریں",
+  "fee": "فیس",
+  "experience": "تجربہ",
+
+  "nationality": "قومیت",
+
+  "the_patient": "مریض",
+  "Aniga": "أنيجا",
+
+  "fullName": "پورا نام",
+  "age": "عمر",
+  "phone": "فون",
+  "pay": "بک اور ادائیگی",
+
+
+  "You_have_successfully_made_the_payment": "آپ نے کامیابی سے ادائیگی کی ہے۔",
+  "You_have_successfully_made_an_appointment": "آپ نے کامیابی سے ملاقات کی ہے۔",
+  "Thank_you_doctor": "شکریہ ڈاکٹر",
+  "See_your_appointment": "اپنی ملاقات دیکھیں",
+  "You_can_follow_us": "آپ ہماری پیروی کر سکتے ہیں"
+
+
+
+
+
+
+
+
+}

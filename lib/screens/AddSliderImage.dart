@@ -8,6 +8,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:caawiye_app/screens/CategoryList.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -99,84 +100,86 @@ class _AddSliderImage  extends State<AddSliderImage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Form(
-        child:
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
+    return MaterialApp(
+      home: Scaffold(
+        body: Form(
+          child:
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
 
-            SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.only(top:30),
-                child: Text("Add Slider Image",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.w600),),
-              ),),
+              SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.only(top:30),
+                  child: Text("slider_images",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.w600),).tr(),
+                ),),
 
-            SafeArea(
-              child: Center(
-                child: CupertinoButton(
-                  onPressed: (){
-                    getImage();
-                  },
-                  child: Container(
-                    width: 300,
-                    height: 200,
-    decoration: BoxDecoration(
-    image: imagePath != null
-    ? DecorationImage(
-    image: FileImage(imagePath!),
-    fit: BoxFit.cover,
-    )
-        : null,
-    ),
-    child: imagePath == null
-    ? Container(
-      width: 300,
-      height: 200,
+              SafeArea(
+                child: Center(
+                  child: CupertinoButton(
+                    onPressed: (){
+                      getImage();
+                    },
+                    child: Container(
+                      width: 300,
+                      height: 200,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-            border:Border.all(width: 1,color: Colors.grey)
+      image: imagePath != null
+      ? DecorationImage(
+      image: FileImage(imagePath!),
+      fit: BoxFit.cover,
+      )
+          : null,
       ),
-      child: Center(
-      child: Icon(Icons.add, size: 48.0),
+      child: imagePath == null
+      ? Container(
+        width: 300,
+        height: 200,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+              border:Border.all(width: 1,color: Colors.grey)
+        ),
+        child: Center(
+        child: Icon(Icons.add, size: 48.0),
+        ),
+      )
+          : null,
       ),
-    )
-        : null,
-    ),
-    ),
+      ),
 
+                  ),
                 ),
-              ),
 
 
 
 
 
-            SizedBox(height: 10,),
-            Center(
-                child: Container(
-                  margin: EdgeInsets.only(top: 20),
-                  height: 45,
-                  width: 250,
-                  child: ElevatedButton(
-                    onPressed: () => InsertDataSql(context),
-                    child: Text("Submit", style: TextStyle(color: Colors
-                        .white),),
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5))
-                    ),),
-                )),
+              SizedBox(height: 10,),
+              Center(
+                  child: Container(
+                    margin: EdgeInsets.only(top: 20),
+                    height: 45,
+                    width: 250,
+                    child: ElevatedButton(
+                      onPressed: () => InsertDataSql(context),
+                      child: Text("Submit", style: TextStyle(color: Colors
+                          .white),).tr(),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5))
+                      ),),
+                  )),
 
 
 
 
 
 
-          ],),),
+            ],),),
+      ),
     );
   }
 

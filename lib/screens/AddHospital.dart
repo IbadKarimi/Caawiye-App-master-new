@@ -6,6 +6,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:caawiye_app/screens/AddCategory.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -95,102 +96,104 @@ class _AddHospital  extends State<AddHospital> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Form(
-        child:
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
+    return MaterialApp(
+      home: Scaffold(
+        body: Form(
+          child:
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
 
-            SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.only(top:30),
-                child: Text("Add Hospital Data",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.w600),),
-              ),),
+              SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.only(top:30),
+                  child: Text("Add_Hospital_Data",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.w600),).tr(),
+                ),),
 
-            SafeArea(
-              child: Center(
-                child: CupertinoButton(
-                  onPressed: (){
-                    getImage();
-                  },
-                  child: CircleAvatar(
-                    backgroundImage: imagePath!=null?  FileImage(imagePath!):null ,
-                    radius: 100,
-                    child:imagePath == null ? Icon(Icons.person):null,
+              SafeArea(
+                child: Center(
+                  child: CupertinoButton(
+                    onPressed: (){
+                      getImage();
+                    },
+                    child: CircleAvatar(
+                      backgroundImage: imagePath!=null?  FileImage(imagePath!):null ,
+                      radius: 100,
+                      child:imagePath == null ? Icon(Icons.person):null,
+                    ),
+
                   ),
-
                 ),
               ),
-            ),
 
-            Container(
-                height: 45,
-                width: 350,
-                child: TextFormField(
-
-                  controller:hospitalNameController,
-                  style: TextStyle(color: Colors.black),
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      label: Text("Hospital Name"),
-                      prefixIcon: Icon(Icons.local_hospital)
-
-                  ),)),
-            SizedBox(height: 10,),
-            Container(
-                height: 45,
-                width: 350,
-                child: TextFormField(
-
-                  controller:cityController,
-                  style: TextStyle(color: Colors.black),
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      label: Text("City Name"),
-                      prefixIcon: Icon(Icons.location_city)
-
-                  ),)),
-            SizedBox(height: 10,),
-            Container(
-                height: 45,
-                width: 350,
-                child: TextFormField(
-
-                  controller:addressController,
-                  style: TextStyle(color: Colors.black),
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      label: Text("Address"),
-                      prefixIcon: Icon(Icons.location_pin)
-
-                  ),)),
-
-            SizedBox(height: 10,),
-            Center(
-                child: Container(
-                  margin: EdgeInsets.only(top: 20),
+              Container(
                   height: 45,
-                  width: 250,
-                  child: ElevatedButton(
-                    onPressed: () => InsertDataSql(context),
-                    child: Text("Submit", style: TextStyle(color: Colors
-                        .white),),
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5))
-                    ),),
-                )),
+                  width: 350,
+                  child: TextFormField(
+
+                    controller:hospitalNameController,
+                    style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        label: Text("Hospital_Name").tr(),
+                        prefixIcon: Icon(Icons.local_hospital)
+
+                    ),)),
+              SizedBox(height: 10,),
+              Container(
+                  height: 45,
+                  width: 350,
+                  child: TextFormField(
+
+                    controller:cityController,
+                    style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        label: Text("City_Name").tr(),
+                        prefixIcon: Icon(Icons.location_city)
+
+                    ),)),
+              SizedBox(height: 10,),
+              Container(
+                  height: 45,
+                  width: 350,
+                  child: TextFormField(
+
+                    controller:addressController,
+                    style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        label: Text("Address").tr(),
+                        prefixIcon: Icon(Icons.location_pin)
+
+                    ),)),
+
+              SizedBox(height: 10,),
+              Center(
+                  child: Container(
+                    margin: EdgeInsets.only(top: 20),
+                    height: 45,
+                    width: 250,
+                    child: ElevatedButton(
+                      onPressed: () => InsertDataSql(context),
+                      child: Text("Submit", style: TextStyle(color: Colors
+                          .white),).tr(),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5))
+                      ),),
+                  )),
 
 
 
 
 
 
-          ],),),
+            ],),),
+      ),
     );
   }
 

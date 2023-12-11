@@ -6,6 +6,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:caawiye_app/screens/CategoryList.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -106,7 +107,7 @@ class _AddCategory  extends State<AddCategory> {
             SafeArea(
               child: Padding(
                 padding: const EdgeInsets.only(top:30),
-                child: Text("Add Hospital Category",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.w600),),
+                child: Text("Add_Hospital_Category",style: TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.w600),).tr(),
               ),),
 
             SafeArea(
@@ -134,7 +135,7 @@ class _AddCategory  extends State<AddCategory> {
                   style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      label: Text("Category Name"),
+                      label: Text("Category_Name").tr(),
                       prefixIcon: Icon(Icons.category)
 
                   ),)),
@@ -149,7 +150,7 @@ class _AddCategory  extends State<AddCategory> {
                   child: ElevatedButton(
                     onPressed: () => InsertDataSql(context),
                     child: Text("Submit", style: TextStyle(color: Colors
-                        .white),),
+                        .white),).tr(),
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
                         shape: RoundedRectangleBorder(

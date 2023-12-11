@@ -1,0 +1,39 @@
+{
+  "hi_guys": "Arabic!",
+  "Hospital_List": "قائمة المستشفيات",
+  "Add_Hospital_Data": "إضافة بيانات المستشفى",
+  "Hospital_Name": "اسم المستشفى",
+  "City_Name": "اسم المدينة",
+  "Address": "عنوان",
+  "Submit": "يُقدِّم",
+
+
+
+  "13_specialties": "التخصصات",
+  "doctor": "طبيب",
+  "slider_images": "إضافة صور المنزلق",
+  "Add_Hospital_Category": "إضافة فئة المستشفى",
+  "Category_Name": "اسم التصنيف",
+
+  "order_doctor": "اطلب طبيب",
+  "fee": "مصاريف",
+  "experience": "خبرة",
+
+  "nationality": "جنسية",
+  "the_patient": "المريض",
+  "Aniga": "مجھے",
+
+  "fullName": "الاسم الكامل",
+  "age": "عمر",
+  "phone": "هاتف",
+  "pay": "الكتاب والدفع",
+
+  "You_have_successfully_made_the_payment": "لقد تم تحديد الموعد بنجاح",
+  "You_have_successfully_made_an_appointment": "لقد قمت بتحديد موعد بنجاح",
+  "Thank_you_doctor": "شكرا لك دكتور",
+  "See_your_appointment": "انظر موعدك",
+  "You_can_follow_us": "يمكنك متابعتنا"
+
+
+
+}

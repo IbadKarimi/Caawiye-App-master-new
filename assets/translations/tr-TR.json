@@ -1,0 +1,40 @@
+{
+  "hi_guys": "Turkey!",
+  "Hospital_List": "Hastane Listesi",
+  "Add_Hospital_Data": "Hastane Verilerini Ekle",
+  "Hospital_Name": "Hastane Adı",
+
+
+  "City_Name": "Şehir İsmi",
+  "Address": "Adres",
+  "Submit":"Göndermek",
+
+
+
+  "13_specialties": "uzmanlıklar",
+  "doctor": "doktor",
+  "slider_images": "Slider Görselleri Ekle",
+  "Add_Hospital_Category": "Hastane kategorisi ekle",
+  "Category_Name": "Kategori adı",
+
+  "order_doctor": "Doktor Sipariş Edin",
+  "fee": "ücret",
+  "experience": "deneyim",
+
+  "nationality": "milliyet",
+  "the_patient": "Hasta",
+  "Aniga": "Ben",
+
+  "fullName": "الاسم الكامل",
+  "age": "yaş",
+  "phone": "telefon",
+  "pay": "rezervasyon yaptır ve öde",
+
+
+  "You_have_successfully_made_the_payment": "Ödemeyi başarıyla yaptınız",
+  "You_have_successfully_made_an_appointment": "Başarıyla randevu aldınız",
+  "Thank_you_doctor": "Teşekkürler doktor",
+  "See_your_appointment": "Randevunuzu görün",
+  "You_can_follow_us": "Bizi takip edebilirsiniz"
+
+}

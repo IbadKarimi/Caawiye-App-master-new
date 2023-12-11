@@ -1,0 +1,38 @@
+{
+  "hi_guys": "Hi, guys!",
+  "Hospital_List": "Hospital List",
+  "Add_Hospital_Data": "Add Hospital Data",
+  "Hospital_Name": "Hospital Name",
+
+  "City_Name": "City Name",
+  "Address": "Address",
+  "Submit":"Submit",
+
+  "13_specialties": "Specialities",
+  "doctor": "Doctor",
+  "slider_images": "Add Slider Images",
+  "Add_Hospital_Category": "Add Hospital Category",
+  "Category_Name": "Category Name",
+
+  "order_doctor": "Order a Doctor",
+  "fee": "Fee",
+  "experience": "Experience",
+
+  "nationality": "Nationality",
+  "the_patient": "The Patient",
+  "Aniga": "Me",
+
+  "fullName": "Full Name",
+  "age": "Age",
+  "phone": "Book and Pay",
+  "pay": "Book and Pay",
+
+
+
+  "You_have_successfully_made_the_payment": "You have successfully made the payment",
+  "You_have_successfully_made_an_appointment": "you have successfully made an appointment",
+  "Thank_you_doctor": "Thank you Docotr",
+  "See_your_appointment": "See your appointment",
+  "You_can_follow_us": "You can follow us"
+
+}

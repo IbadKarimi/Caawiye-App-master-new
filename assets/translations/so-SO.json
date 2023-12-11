@@ -1,0 +1,38 @@
+{
+  "hi_guys": "Somali!",
+  "Hospital_List": "Liiska Isbitaalka",
+  "Add_Hospital_Data": "Kudar Xogta Cisbitaalka",
+  "Hospital_Name": "Magaca Isbitaalka",
+
+  "City_Name": "Magaca Magaalada",
+  "Address": "Cinwaanka",
+  "Submit":"Gudbi",
+
+  "13_specialties": "Taqasus",
+  "doctor": "Dhakhtar",
+  "slider_images": "Kudar Sawirada Slider",
+  "Add_Hospital_Category": "Ku dar qaybta Isbitaalka",
+  "Category_Name": "Magaca Qaybta",
+
+  "order_doctor": "Dalbo dhakhtar",
+  "fee": "khidmad",
+  "experience": "waayo-aragnimo",
+
+  "nationality": "dhalashada",
+  "the_patient": "Bukaanka",
+  "Aniga": "Aniga",
+
+  "fullName": "magac buuxa",
+  "age": "da'da",
+  "phone": "telefoonka",
+  "pay": "buug oo bixi",
+
+
+
+  "You_have_successfully_made_the_payment": "Si guul leh ayaad u bixisay",
+  "You_have_successfully_made_an_appointment": "Si guul leh ayaad ballan u qabatay",
+  "Thank_you_doctor": "Mahadsanid dhakhtar",
+  "See_your_appointment": "Balanta arag",
+  "You_can_follow_us": "Waad nagu soo raaci kartaa"
+
+}

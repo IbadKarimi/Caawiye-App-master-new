@@ -19,9 +19,10 @@ import '../models/DoctorModel.dart';
 class DoctorList extends StatefulWidget {
   String categoryName;
   String categoryId;
+  String hospitalName;
 
 
-  DoctorList({required this.categoryName,required this.categoryId});
+  DoctorList({required this.categoryName,required this.categoryId,required this.hospitalName});
 
   //static const String id = 'DoctorsListScreen';
 
@@ -49,7 +50,7 @@ class _DoctorList extends State<DoctorList> {
   Future<void> _fetchDoctorData() async {
     //create function in list type becoze we get data and set in _product array
     var response = await http
-        .get(Uri.parse('http://192.168.43.238:8080/Hospital/GetDoctorData.php'));
+        .get(Uri.parse('http://192.168.1.7:8080/Hospital/GetDoctorData.php'));
 
     //the scope of the array is Inside the function
     if (response.statusCode == 200) {
@@ -109,7 +110,7 @@ class _DoctorList extends State<DoctorList> {
             IconButton(
               onPressed: () {
 
-                Get.offAll(()=>DoctorList(categoryName: widget.categoryName, categoryId: widget.categoryId));
+                Get.offAll(()=>DoctorList(categoryName: widget.categoryName, categoryId: widget.categoryId,hospitalName: "",));
 
               },
               icon: Icon(Icons.refresh),
@@ -141,8 +142,8 @@ class _DoctorList extends State<DoctorList> {
                           borderRadius: BorderRadius.circular(10),
                           child: InkWell(
                             onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)
-                              => doctorAppointments("http://192.168.43.238:8080/Hospital/"+data[i].imageName
-                                  ,data[i].fullName,data[i].fee,data[i].experience,""),
+                              => doctorAppointments("http://192.168.1.7:8080/Hospital/"+data[i].imageName
+                                  ,data[i].fullName,data[i].fee,data[i].experience,widget.categoryName,data[i].nationality!,data[i].about!,widget.hospitalName)
 
                             )),
                             borderRadius: BorderRadius.circular(10),
@@ -164,7 +165,7 @@ class _DoctorList extends State<DoctorList> {
                                     ),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10),
-                                      child: Image.network("http://192.168.43.238:8080/Hospital/"+data[i].imageName,fit: BoxFit.cover,),
+                                      child: Image.network("http://192.168.1.7:8080/Hospital/"+data[i].imageName,fit: BoxFit.cover,),
                                     ),
                                   ),
                                   const SizedBox(width: 10),

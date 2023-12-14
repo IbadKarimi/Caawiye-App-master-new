@@ -36,7 +36,7 @@ class _kalkaalHospitalsState extends State<kalkaalHospitals> {
  Future<void> _fetchHospitalData() async {
    //create function in list type becoze we get data and set in _product array
    var response = await http
-       .get(Uri.parse('http://192.168.43.238:8080/Hospital/GetHospitalData.php'));
+       .get(Uri.parse('http://192.168.1.7:8080/Hospital/GetHospitalData.php'));
 
    //the scope of the array is Inside the function
    if (response.statusCode == 200) {
@@ -168,7 +168,7 @@ debugShowCheckedModeBanner: false,
 
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
-                                    child: Image.network("http://192.168.43.238:8080/Hospital/"+ data[i].image),
+                                    child: Image.network("http://192.168.1.7:8080/Hospital/"+ data[i].image),
                                   ),
 
 

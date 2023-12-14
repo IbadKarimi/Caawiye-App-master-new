@@ -46,7 +46,7 @@ class _HospitalDepartments extends State<HospitalDepartments> {
   Future<void> _fetchCategoryData() async {
     //create function in list type becoze we get data and set in _product array
     var response = await http
-        .get(Uri.parse('http://192.168.43.238:8080/Hospital/GetCategoryDataWithHId.php?hospitalId=${widget.hospitalId}'));
+        .get(Uri.parse('http://192.168.1.7:8080/Hospital/GetCategoryDataWithHId.php?hospitalId=${widget.hospitalId}'));
 
     //the scope of the array is Inside the function
     if (response.statusCode == 200) {
@@ -81,7 +81,7 @@ class _HospitalDepartments extends State<HospitalDepartments> {
 
 
   Future<List<dynamic>> fetchSliderImage() async {
-    var response1 = await http.get(Uri.parse('http://192.168.43.238:8080/Hospital/GetSliderImageHId.php?hospitalId=${widget.hospitalId}'));
+    var response1 = await http.get(Uri.parse('http://192.168.1.7:8080/Hospital/GetSliderImageHId.php?hospitalId=${widget.hospitalId}'));
     // var response = await http.get(Uri.parse('http://192.168.1.6:8080/Hospital/GetCategoryData.php'));
 
     if (response1.statusCode == 200) {
@@ -150,7 +150,7 @@ class _HospitalDepartments extends State<HospitalDepartments> {
                       'https://i.imgur.com/tSYmKvQ.png',
                       'https://i.imgur.com/TunJzZJ.png',*/
                       for (var item in sliderImage)
-                        "http://192.168.43.238:8080/Hospital/${item['imageName']}",
+                        "http://192.168.1.7:8080/Hospital/${item['imageName']}",
                     ],
                   ),
 
@@ -288,7 +288,7 @@ class _HospitalDepartments extends State<HospitalDepartments> {
                         child: InkWell(
                           onTap: () {
                             print("Hospital Name is ===============?"+widget.hospitalName);
-                           Get.to(()=>DoctorList(categoryName: categoryName, categoryId: id));// only need category id here
+                           Get.to(()=>DoctorList(categoryName: categoryName, categoryId: id,hospitalName: widget.hospitalName,));// only need category id here
 
                           },
                           borderRadius: BorderRadius.circular(20),
@@ -324,7 +324,7 @@ class _HospitalDepartments extends State<HospitalDepartments> {
                                         bottomRight: Radius.circular(10),
 
                                       ),
-                                      child: Image.network("http://192.168.43.238:8080/Hospital/" + item, fit: BoxFit.cover,),
+                                      child: Image.network("http://192.168.1.7:8080/Hospital/" + item, fit: BoxFit.cover,),
 
                                     ),
                                   ),

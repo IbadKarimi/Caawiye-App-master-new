@@ -26,8 +26,11 @@ class doctorAppointments extends StatefulWidget {
   String fee;
   String experience;
   String categoryName;
+  String nationality;
+  String about;
+  String hospitalName;
   // final hospitalDoctors doctorhospital;
-  doctorAppointments(this.imagePath,this.fullName,this.fee,this.experience,this.categoryName);
+  doctorAppointments(this.imagePath,this.fullName,this.fee,this.experience,this.categoryName,this.nationality,this.about,this.hospitalName);
 
   @override
   _doctorAppointmentsState createState() => _doctorAppointmentsState();
@@ -101,6 +104,8 @@ class _doctorAppointmentsState extends State<doctorAppointments> {
         "appointmentDate":_selectedDate.toString(),
         "doctorName":widget.fullName.toString(),
         "paymentStatus":"Sucessfully".toString(),
+        "hospitalName":widget.hospitalName,
+        "category":widget.categoryName,
 
 
       });
@@ -385,7 +390,7 @@ class _doctorAppointmentsState extends State<doctorAppointments> {
                     child: Padding(
                         padding: EdgeInsets.symmetric(vertical: 10),
                         child: Text(
-                          "ahmed is the best doctor in hindia he has more expirence about his speaclist ",
+                          widget.nationality,
                           style: GoogleFonts.poppins(
                             fontSize: 14, letterSpacing: 1,),)),
                   ),
@@ -437,7 +442,7 @@ class _doctorAppointmentsState extends State<doctorAppointments> {
                                 color: Colors.blue,
                                 fontWeight: FontWeight.bold),
                             ).tr(),
-                            Text(":"+"Hindi", style:
+                            Text(":"+widget.nationality.toString(), style:
                             TextStyle(fontSize: 14,
                                 color: Colors.blue,
                                 fontWeight: FontWeight.bold),

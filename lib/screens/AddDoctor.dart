@@ -67,7 +67,7 @@ class _Doctor extends State<Doctor> {
        lastInsertedId = response["id"];
 
        // print("====================================>"+lastInsertedId.toString());
-      Get.to(()=>DoctorList(categoryName: widget.hospitalName,categoryId:widget.categoryId,));
+      Get.to(()=>DoctorList(categoryName: widget.hospitalName,categoryId:widget.categoryId,hospitalName: "",));
         print("Uploaded");
       }else{
         print("Error");

@@ -7,8 +7,11 @@ class DoctorModel {
   String fee;
   String categoryId;
 
+  String ? about;
+  String ? nationality;
 
-  DoctorModel ({required this.id,required this.imageName, required this.fullName,required this.experience,required this.fee,required this.categoryId});
+
+  DoctorModel ({this.nationality,this.about,required this.id,required this.imageName, required this.fullName,required this.experience,required this.fee,required this.categoryId});
 
   factory DoctorModel .fromJson(Map<String, dynamic> json) {
     return DoctorModel (
@@ -18,6 +21,8 @@ class DoctorModel {
         experience: json['experience'] ?? "",
         fee: json['fee']??"",
       categoryId: json['categoryId'] ?? "",
+      about: json['about'] ?? "",
+      nationality: json['nationality'] ?? "",
     );
   }
 }
